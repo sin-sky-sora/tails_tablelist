@@ -13,3 +13,9 @@ python -m pip install --upgrade pip
 python -m pip install pipenv
 pipenv install
 ```
+
+### github push
+```
+git config --global user.email "email@example.com"
+git config --global user.name "name"
+```
