@@ -2,64 +2,69 @@
 {% load static %}
 
 {% block content %}
-    <div class="container px-2 py-4 mx-auto">
-        <div class="xl:w-2/3 w-full mx-auto overflow-auto">
-            <table class="table-auto w-full text-left whitespace-no-wrap">
-                <thead>
-                    <tr>
-                        <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Title</th>
-                        <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 w-4 hidden md:table-cell">場所</th>
-                        <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 w-28 hidden md:table-cell">ID</th>
-                        <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 text-center w-10 table-cell md:hidden">
-                            <div>場所</div>
-                            <div>ID</div>
-                        </th>
-                        <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 w-16 hidden sm:table-cell">最終更新</th>
-                        <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 text-center w-6 rounded-tr rounded-br">返信</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-b">
-                        <td class="py-1">
-                            <span class="hover:underline cursor-pointer">にゃんにゃん</span>
-                        </td>
-                        <td class="px-1 py-1 hidden md:table-cell place_string">PC</td>
-                        <td class="px-1 py-1 hidden md:table-cell id_string">aEJMhlUvLMDX</td>
-                        <td class="px-1 py-1 table-cell md:hidden">
-                            <div class="h-3 w-3 rounded-lg m-auto place_color"></div>
-                            <div class="h-3 w-3 rounded-lg m-auto id_color"></div>
-                        </td>
-                        <td class="px-1 py-3 hidden sm:table-cell">2021/03/03 15:01</td>
-                        <td class="px-4 py-3 text-center">5</td>
-                    </tr>
-                    <tr class="border-b">
-                        <td class="py-1">
-                            <span class="hover:underline cursor-pointer">なんとかかんとか売り なんとかかんとか買い</span>
-                        </td>
-                        <td class="px-1 py-1 hidden md:table-cell place_string">SP</td>
-                        <td class="px-1 py-1 hidden md:table-cell id_string">QlmzpRPxD1LL</td>
-                        <td class="px-1 py-1 table-cell md:hidden">
-                            <div class="h-3 w-3 rounded-lg m-auto place_color"></div>
-                            <div class="h-3 w-3 rounded-lg m-auto id_color"></div>
-                        </td>
-                        <td class="px-1 py-3 hidden sm:table-cell">2021/03/03 13:33</td>
-                        <td class="px-4 py-3 text-center">1</td>
-                    </tr>
-                    <tr class="border-b">
-                        <td class="py-1">
-                            <span class="hover:underline cursor-pointer">新モバ買い</span>
-                        </td>
-                        <td class="px-1 py-1 hidden md:table-cell place_string">PC/SP</td>
-                        <td class="px-1 py-1 hidden md:table-cell id_string">RZlMsRD5AvQS</td>
-                        <td class="px-1 py-1 table-cell md:hidden">
-                            <div class="h-3 w-3 rounded-lg m-auto place_color"></div>
-                            <div class="h-3 w-3 rounded-lg m-auto id_color"></div>
-                        </td>
-                        <td class="px-1 py-3 hidden sm:table-cell">2021/03/02 20:56</td>
-                        <td class="px-4 py-3 text-center">5</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container mx-auto">
+        <div class="my-3 px-2">
+            <div class="text-2xl">Table List</div>
+            <div class="py-4">
+                <div class="xl:w-2/3 w-full mx-auto overflow-auto">
+                    <table class="table-auto w-full text-left whitespace-no-wrap">
+                        <thead>
+                            <tr>
+                                <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Title</th>
+                                <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 w-4 hidden md:table-cell">場所</th>
+                                <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 w-28 hidden md:table-cell">ID</th>
+                                <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 text-center w-10 table-cell md:hidden">
+                                    <div>場所</div>
+                                    <div>ID</div>
+                                </th>
+                                <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 w-16 hidden sm:table-cell">最終更新</th>
+                                <th class="px-1 py-2 title-font tracking-wider font-midium text-gray-900 text-sm bg-gray-100 text-center w-6 rounded-tr rounded-br">返信</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-funchsia-300">
+                            <tr>
+                                <td class="py-1">
+                                    <span class="hover:underline cursor-pointer">にゃんにゃん</span>
+                                </td>
+                                <td class="px-1 py-1 hidden md:table-cell place_string">PC</td>
+                                <td class="px-1 py-1 hidden md:table-cell id_string">aEJMhlUvLMDX</td>
+                                <td class="px-1 py-1 table-cell md:hidden">
+                                    <div class="h-3 w-3 rounded-lg m-auto place_color"></div>
+                                    <div class="h-3 w-3 rounded-lg m-auto id_color"></div>
+                                </td>
+                                <td class="px-1 py-3 hidden sm:table-cell">2021/03/03 15:01</td>
+                                <td class="px-4 py-3 text-center">5</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1">
+                                    <span class="hover:underline cursor-pointer">なんとかかんとか売り なんとかかんとか買い</span>
+                                </td>
+                                <td class="px-1 py-1 hidden md:table-cell place_string">SP</td>
+                                <td class="px-1 py-1 hidden md:table-cell id_string">QlmzpRPxD1LL</td>
+                                <td class="px-1 py-1 table-cell md:hidden">
+                                    <div class="h-3 w-3 rounded-lg m-auto place_color"></div>
+                                    <div class="h-3 w-3 rounded-lg m-auto id_color"></div>
+                                </td>
+                                <td class="px-1 py-3 hidden sm:table-cell">2021/03/03 13:33</td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1">
+                                    <span class="hover:underline cursor-pointer">新モバ買い</span>
+                                </td>
+                                <td class="px-1 py-1 hidden md:table-cell place_string">PC/SP</td>
+                                <td class="px-1 py-1 hidden md:table-cell id_string">RZlMsRD5AvQS</td>
+                                <td class="px-1 py-1 table-cell md:hidden">
+                                    <div class="h-3 w-3 rounded-lg m-auto place_color"></div>
+                                    <div class="h-3 w-3 rounded-lg m-auto id_color"></div>
+                                </td>
+                                <td class="px-1 py-3 hidden sm:table-cell">2021/03/02 20:56</td>
+                                <td class="px-4 py-3 text-center">5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <script src="{% static 'js/chame.js' %}"></script>
@@ -79,4 +84,46 @@
             })
         }())
     </script>
+    <div class="container mx-auto">
+        <div class="my-3 px-2">
+            <div class="text-2xl">Input Form</div>
+            <div class="py-4">
+                <div class="xl:w-2/3 w-full mx-auto overflow-auto">
+                    <div class="w-full max-x-xs">
+                        <form class="bg-white rounded px-8 py-6">
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm mb-2" for="title">
+                                    題名
+                                </label>
+                                <input type="text" class="form-input w-full md:w-3/5 py-2 px-3" placeholder="題名">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm mb-2">
+                                    取引場所
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="form-radio text-yellow-500" name="place" value="PC" checked>
+                                    <span class="ml-2">PC Only</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="form-radio text-blue-500" name="place" value="PCSP">
+                                    <span class="ml-2">PC and SP</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="form-radio text-green-500" name="place" value="SP">
+                                    <span class="ml-2">SP Only</span>
+                                </label>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm mb-2" for="content">
+                                    内容
+                                </label>
+                                <textarea class="form-textarea resize-y w-full md:w-4/5" rows="6"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
