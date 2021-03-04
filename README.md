@@ -1,5 +1,5 @@
-# firstproject
-django first projecct from paiza.cloud
+# tailwind table lists design
+django-tailwind from paiza.cloud
 
 ```
 git clone https://github.com/sin-sky-sora/firstproject.git
