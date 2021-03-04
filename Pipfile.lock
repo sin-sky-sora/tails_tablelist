@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "67af4e1077f0548c6c08b1b6be897a1d0d4018c4b10888da002d86d1a68552b0"
+            "sha256": "c8b82b60e1de67e27ac955200571f28bc8cd4742d70786c73e85caee6731fa7f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -32,6 +32,13 @@
             "index": "pypi",
             "version": "==3.1.7"
         },
+        "django-3-jet": {
+            "hashes": [
+                "sha256:195d5ffa122119d8c3d5d639c297ba965c4741f2ff5787c5648696b9853475f2"
+            ],
+            "index": "pypi",
+            "version": "==1.0.8"
+        },
         "django-jet": {
             "hashes": [
                 "sha256:f521dc0873023afa198d2b57687e0593ee62022bd50fa59506dfce69b101cd9e"
@@ -53,6 +60,14 @@
                 "sha256:eb10ce3e7736052ed3623d49975ce333bcd712c7bb19a58b9e2089d4057d0798"
             ],
             "version": "==2021.1"
+        },
+        "six": {
+            "hashes": [
+                "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259",
+                "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==1.15.0"
         },
         "sqlparse": {
             "hashes": [
