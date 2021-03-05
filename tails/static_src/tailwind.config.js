@@ -1,6 +1,7 @@
 // This is a minimal config.
 // If you need the full config, get it from here:
 // https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
+const colors = require('./node_modules/color')
 module.exports = {
     purge: [
         // Templates within theme app (e.g. base.html)
@@ -11,7 +12,24 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            screens: {
+                sm: '640px',
+                md: '768px',
+                xl: '1280px',
+            },
+            colors: {
+                transparent: 'transparent',
+                current: 'currentColor',
+                black: colors.black,
+                white: colors.white,
+                gray: colors.coolGray,
+                red: colors.red,
+                green: colors.emerald,
+                blue: colors.blue,
+                pink: colors.pink,
+            }
+        },
     },
     variants: {
         extend: {},

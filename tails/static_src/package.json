@@ -29,6 +29,7 @@
     "watch": "^1.0.2"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "glob": "^7.1.6"
   }
 }
