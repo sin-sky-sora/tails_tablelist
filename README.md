@@ -14,6 +14,17 @@ python -m pip install pipenv
 pipenv install
 ```
 
+### start APP 
+```
+cd ~/firstproject/
+pipenv run start
+
+# tailwind css build
+pipenv run build
+# HTMLに使われてるCSSしかビルドされない!!!
+
+```
+
 ### github push
 ```
 git config --global user.email "email@example.com"
