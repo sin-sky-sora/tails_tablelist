@@ -101,18 +101,20 @@
                                 <label class="block text-gray-900 text-sm mb-2">
                                     取引場所
                                 </label>
-                                <label class="inline-flex items-center">
-                                    <input type="radio" class="form-radio text-yellow-500" name="place" value="PC" checked>
-                                    <span class="ml-2">PC Only</span>
-                                </label>
-                                <label class="inline-flex items-center">
-                                    <input type="radio" class="form-radio text-blue-500" name="place" value="PCSP">
-                                    <span class="ml-2">PC and SP</span>
-                                </label>
-                                <label class="inline-flex items-center">
-                                    <input type="radio" class="form-radio text-green-500" name="place" value="SP">
-                                    <span class="ml-2">SP Only</span>
-                                </label>
+                                <div class="flex flex-col sm:flex-row">
+                                    <label class="items-center">
+                                        <input type="radio" class="form-radio text-yellow-500" name="place" value="PC" checked>
+                                        <span class="ml-2">PC Only</span>
+                                    </label>
+                                    <label class="items-center">
+                                        <input type="radio" class="form-radio text-blue-500" name="place" value="PCSP">
+                                        <span class="ml-2">PC and SP</span>
+                                    </label>
+                                    <label class="items-center">
+                                        <input type="radio" class="form-radio text-green-500" name="place" value="SP">
+                                        <span class="ml-2">SP Only</span>
+                                    </label>
+                                </div>
                             </div>
                             <div class="mb-4">
                                 <label class="block text-gray-900 text-sm mb-2" for="content">
@@ -125,5 +127,67 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="md:flex h-screen">
+        <nav class="md:overflow-hidden fixed top-0 -left-72 md:left-0 w-72 md:w-16 duration-300 transform  md:transform-none md:translate-x-0">
+            <div class="bg-pink-100 w-72 md:w-16 h-screen ">
+                <div class="flex-auto h-full">
+                    <div class="flex flex-col h-screen">
+                        <ul class="relative m-0 p-0 list-none h-screen">
+                            <li class="text-2xl p-4 w-full flex relative justify-start border-b-2 border-gray-100 md:hidden">
+                                exsample.com
+                            </li>
+                            <ul class="relative m-0 p-0 list-none h-full overflow-y-auto">
+                                <li class="px-2 py-1 w-full flex text-center">
+                                    <div class="flex md:block items-center p-2">
+                                        <div class="mx-auto">
+                                            <i class="">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                                            </i>
+                                        </div>
+                                        <div class="md:text-ss pl-2 md:pl-0">ホーム</div>
+                                    </div>
+                                </li>
+                                <li class="px-2 py-1 w-full flex ">
+                                    <div class="flex items-center p-2">
+                                        <i class="mr-2">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>
+                                        </i>
+                                        <span>プレゼント</span>
+                                    </div>
+                                </li>
+                                <li class="h-16"><span class="hidden">dummy</span></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="layer bg-gray-100 w-screen md:w-0 min-h-screen hidden fixed md:static top-0 left-72 ">
+                <button type="button" class="nvbtn" onclick="togler()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div class="w-full min-h-screen bg-green-100 flex">
+            <div class="cover w-0 md:w-20 block min-h-screen"></div>
+            <div class=" w-full">
+                <input type="button" class="nvbtn" value="nav" onclick="togler()">
+            </div>
+            
+            <script type="text/javascript">
+                function togler(){
+                    document.querySelector("nav").classList.toggle("translate-x-72");
+                    document.querySelector(".layer").classList.toggle("hidden")
+                    
+                }
+                togler()
+            </script>
+        </div>
+        <!-- <nav class="w-60 min-h-screen overflow-hidden fixed left-60 md:flex-shrink-0 md:left-0">
+            <div class="bg-blue-500">
+                
+            </div>
+        </nav>
+        <div class="w-full min-h-screen bg-current"></div> -->
     </div>
 {% endblock content %}
