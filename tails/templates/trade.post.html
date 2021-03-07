@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mx-auto">
+        <div class="my-3 px-2">
+            <div class="text-2xl">投稿フォーム</div>
+            <div class="py-4">
+                <div class="xl:w-2/3 w-full mx-auto overflow-auto">
+                    <div class="w-full max-x-xs">
+                        <form class="bg-white rounded px-8 py-6">
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm mb-2" for="title">
+                                    題名
+                                </label>
+                                <input type="text" class="form-input w-full md:w-3/5 py-2 px-3" placeholder="題名">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm mb-2">
+                                    取引場所
+                                </label>
+                                <div class="flex flex-col sm:flex-row">
+                                    <label class="items-center">
+                                        <input type="radio" class="form-radio text-yellow-500" name="place" value="PC" checked>
+                                        <span class="ml-2">PC Only</span>
+                                    </label>
+                                    <label class="items-center">
+                                        <input type="radio" class="form-radio text-blue-500" name="place" value="PCSP">
+                                        <span class="ml-2">PC and SP</span>
+                                    </label>
+                                    <label class="items-center">
+                                        <input type="radio" class="form-radio text-green-500" name="place" value="SP">
+                                        <span class="ml-2">SP Only</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-900 text-sm mb-2" for="content">
+                                    内容
+                                </label>
+                                <textarea class="form-textarea resize-y w-full md:w-4/5" rows="6"></textarea>
+                            </div>
+                            <div class="mb-4 text-right">
+                                <input type="button" class="ml-auto border bg-blue-200 ring-blue-400 rounded-sm px-2 py-1" value="投稿">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
