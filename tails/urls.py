@@ -1,5 +1,4 @@
 from django.urls import path,include
-from django.views.generic.simple import redirect_to
 from .views import index,home,trade,trande_post
 urlpatterns = [
     path('',index,name="top"),
