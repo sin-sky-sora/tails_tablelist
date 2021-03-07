@@ -2,7 +2,7 @@
 django-tailwind from paiza.cloud
 
 ```
-git clone https://github.com/sin-sky-sora/firstproject.git
+git clone https://github.com/sin-sky-sora/tails_tablelist.git
 cd firstproject
 sh init.sh
 source ~/.bash_profile
@@ -16,7 +16,7 @@ pipenv install
 
 ### start APP 
 ```
-cd ~/firstproject/
+cd ~/tails_tablelist/
 pipenv run start
 
 # tailwind css build
