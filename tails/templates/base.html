@@ -1,4 +1,5 @@
 {% load static %}
+{% load active_link_tags %}
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -17,31 +18,44 @@
 
 	<body class="font-sans leading-normal tracking-normal bg-white">
 	    <div class="md:flex h-screen">
-            <nav class="md:overflow-hidden fixed top-0 -left-72 md:left-0 w-72 md:w-16 duration-300 transform  md:transform-none md:translate-x-0">
+            <nav class="md:overflow-hidden fixed top-0 -left-72 md:left-0 w-72 md:w-16 duration-300 transform md:transform-none md:translate-x-0">
                 <div class="bg-pink-100 w-72 md:w-16 h-screen ">
                     <div class="flex-auto h-full">
                         <div class="flex flex-col h-screen">
                             <ul class="relative m-0 p-0 list-none h-screen">
-                                <li class="text-2xl p-4 w-full flex relative justify-start border-b-2 border-gray-100 md:hidden">
-                                    exsample.com
+                                <li class="text-2xl p-4 w-full flex relative justify-start border-b-2 border-black md:hidden">
+                                    example.com
                                 </li>
                                 <ul class="relative m-0 p-0 list-none h-full overflow-y-auto">
-                                    <li class="px-2 py-1 w-full flex text-center hover:bg-gray-300">
-                                        <div class="flex md:block items-center p-2">
-                                            <div class="mx-auto">
-                                                <i><svg class="w-6 h-6 m-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></i>
+                                    <a href='{% url "top_home" %}' class="{% if request.path == '/home/' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/home/' %}bg-pink-300{% else %}hover:bg-gray-300{% endif %}">
+                                            <div class="flex md:block items-center p-2">
+                                                <div class="mx-auto">
+                                                    <i><svg class="w-6 h-6 m-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></i>
+                                                </div>
+                                                <div class="md:text-ss pl-2 md:pl-0">ホーム</div>
                                             </div>
-                                            <div class="md:text-ss pl-2 md:pl-0">ホーム</div>
-                                        </div>
-                                    </li>
-                                    <li class="px-2 py-1 w-full flex text-center hover:bg-gray-300">
-                                        <div class="flex md:block items-center p-2">
-                                            <div class="mx-auto">
-                                                <i><svg class="w-6 h-6 m-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg></i>
+                                        </li>
+                                    </a>
+                                    <a href='{% url "trade_home" %}' class="{% if request.path == '/trade/' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center hover:bg-gray-300 {% if request.path == '/trade/' %}bg-pink-300{% else %}hover:bg-gray-300{% endif %}">
+                                            <div class="flex md:block items-center p-2">
+                                                <div class="mx-auto">
+                                                    <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg></i>
+                                                </div>
+                                                <div class="md:text-ss pl-2 md:pl-0">取引</div>
                                             </div>
-                                            <div class="md:text-ss pl-2 md:pl-0">プレゼント</div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    </a>
+                                    <a href='{% url "trade_post" %}' class="{% if request.path == '/trade/post/' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center hover:bg-gray-300 {% if request.path == '/trade/post/' %}bg-pink-300{% else %}hover:bg-gray-300{% endif %}">
+                                            <div class="flex md:block items-center p-2">
+                                                <div class="mx-auto">
+                                                    <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></i>                                            </div>
+                                                <div class="md:text-ss pl-2 md:pl-0">投稿</div>
+                                            </div>
+                                        </li>
+                                    </a>
                                     <li class="h-16"><span class="hidden">dummy</span></li>
                                 </ul>
                             </ul>
@@ -49,8 +63,8 @@
                     </div>
                 </div>
                 <div class="layer bg-gray-500 bg-opacity-95 w-screen md:w-0 min-h-screen hidden fixed md:static top-0 left-72 ">
-                    <button type="button" class="nvbtn hidden bg-gray-100 rounded-full p-3">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    <button type="button" class="bg-gray-100 rounded-full p-3">
+                        <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></i>
                     </button>
                 </div>
             </nav>
@@ -58,21 +72,68 @@
                 <div class="cover w-0 md:w-20 block min-h-screen"></div>
                 <div class="w-full">
                     {% block content %}{% endblock content %}
+                    <div class="notif-container fixed -right-52 top-14 md:top-0 mt-2"></div>
+                    <button type="button" onclick='createNotif("success","Success Text")'>ADD</button>
                 </div>
             </div>
         </div>
-        <button type="button" class="nvbtn fixed md:hidden top-0 right-0 bg-gray-100 bg-opacity-95 rounded-full p-2 mt-2" onclick="togler()">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+        <button type="button" class="nvbtn fixed md:hidden top-0 right-0 bg-gray-100 bg-opacity-95 rounded-full p-2 mt-2 mr-2" onclick="togler()">
+            <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg></i>
         </button>
         <script type="text/javascript">
             function togler(){
                 document.querySelector("nav").classList.toggle("translate-x-72");
                 document.querySelector(".layer").classList.toggle("hidden");
-                document.querySelectorAll(".nvbtn").forEach(function(e){
-                    e.classList.toggle("hidden");
-                });
+                document.querySelector(".nvbtn").classList.toggle("hidden");
             }
             document.querySelector(".layer").addEventListener("click",togler);
+            const classsAdd = (element,text) =>text.split(" ").forEach(function(e){ element.classList.add(e); });
+            const types = {
+                "success":{
+                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>',
+                    "box":"bg-green-500 border-green-700",
+                    "text":"text-green-500"
+                },
+                "info":{
+                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
+                    "box":"bg-blue-400 border-blue-700",
+                    "text":"text-blue-500"
+                },
+                "warning":{
+                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
+                    "box":"bg-yellow-500 border-yellow-600",
+                    "text":"text-yellow-500"
+                },
+                "danger":{
+                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>',
+                    "box":"bg-red-500 border-red-700",
+                    "text":"text-red-500"
+                }
+            }
+            function sleep(msec) {return new Promise(function(resolve) {setTimeout(function() {resolve()}, msec);});}
+            async function createNotif(type,text){
+                const data = types[type];
+                const color = document.createElement("div");
+                classsAdd(color,"rounded-full bg-white mr-3 " + data.text)
+                color.innerHTML = data.svg;
+                const flexbox = document.createElement("div");
+                classsAdd(flexbox,"flex items-center border-l-4 py-2 px-3 shadow-md mb-2 delay-500 duration-500 transform relative " + data.box)
+                flexbox.append(color)
+                const textBox = document.createElement("div")
+                classsAdd(textBox,"text-white max-w-xs pl-2")
+                textBox.textContent = text
+                flexbox.append(textBox)
+                document.querySelector(".notif-container").append(flexbox)
+                gets(flexbox)
+            }
+            async function gets(el){
+                await sleep(2000);
+                el.style.right = "13rem"
+            }
+            createNotif("success","Success Text")
+            createNotif("info","Info Text")
+            createNotif("warning","Warning Text")
+            createNotif("danger","Danger Text")
         </script>
 	</body>
 
