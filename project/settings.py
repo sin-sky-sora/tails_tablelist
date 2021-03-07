@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tailwind',
     'tails',
+    'active_link',
 ]
 TAILWIND_APP_NAME = 'tails'
 MIDDLEWARE = [
