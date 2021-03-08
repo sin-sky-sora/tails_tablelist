@@ -5,12 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
-django-jet = "*"
 django-tailwind = "*"
 django-3-jet = "*"
 gunicorn = "*"
-r-django-jet = "*"
-django-active-link = "*"
 
 [dev-packages]
 
