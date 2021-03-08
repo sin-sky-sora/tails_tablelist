@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ja">
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +11,7 @@
 		<meta name="author" content="">
         <link rel="stylesheet" href="https://unpkg.com/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.min.css">
 		<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-		
 	</head>
-
 	<body class="font-sans leading-normal tracking-normal bg-white">
 	    <div class="md:flex h-screen">
             <nav class="md:overflow-hidden fixed top-0 -left-72 md:left-0 w-72 md:w-16 duration-300 transform md:transform-none md:translate-x-0">
@@ -27,7 +24,7 @@
                                 </li>
                                 <ul class="relative m-0 p-0 list-none h-full overflow-y-auto">
                                     <a href='{% url "top_home" %}' class="{% if request.path == '/home/' %}pointer-events-none{% endif %}">
-                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/home/' %}bg-pink-300{% else %}hover:bg-gray-300{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/home/' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
                                             <div class="flex md:block items-center p-2">
                                                 <div class="mx-auto">
                                                     <i><svg class="w-6 h-6 m-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></i>
@@ -37,7 +34,7 @@
                                         </li>
                                     </a>
                                     <a href='{% url "trade_home" %}' class="{% if request.path == '/trade/' %}pointer-events-none{% endif %}">
-                                        <li class="px-2 py-1 w-full flex text-center hover:bg-gray-300 {% if request.path == '/trade/' %}bg-pink-300{% else %}hover:bg-gray-300{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/trade/' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
                                             <div class="flex md:block items-center p-2">
                                                 <div class="mx-auto">
                                                     <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg></i>
@@ -47,7 +44,7 @@
                                         </li>
                                     </a>
                                     <a href='{% url "trade_post" %}' class="{% if request.path == '/trade/post/' %}pointer-events-none{% endif %}">
-                                        <li class="px-2 py-1 w-full flex text-center hover:bg-gray-300 {% if request.path == '/trade/post/' %}bg-pink-300{% else %}hover:bg-gray-300{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center  {% if request.path == '/trade/post/' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
                                             <div class="flex md:block items-center p-2">
                                                 <div class="mx-auto">
                                                     <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></i>                                            </div>
@@ -116,18 +113,13 @@
                 classsAdd(color,"rounded-full bg-white mr-3 " + data.text)
                 color.innerHTML = data.svg;
                 const flexbox = document.createElement("div");
-                classsAdd(flexbox,"flex items-center border-l-4 py-2 px-3 shadow-md mb-2 delay-500 duration-500 transform relative " + data.box)
+                classsAdd(flexbox,"flex items-center border-l-4 py-2 px-3 shadow-md mb-2 delay-500 duration-500 transform relative slide " + data.box)
                 flexbox.append(color)
                 const textBox = document.createElement("div")
                 classsAdd(textBox,"text-white max-w-xs pl-2")
                 textBox.textContent = text
                 flexbox.append(textBox)
                 document.querySelector(".notif-container").append(flexbox)
-                gets(flexbox)
-            }
-            async function gets(el){
-                await sleep(2000);
-                el.style.right = "13rem"
             }
             createNotif("success","Success Text")
             createNotif("info","Info Text")
