@@ -23,6 +23,11 @@ pipenv run start
 pipenv run build
 # HTMLに使われてるCSSしかビルドされない!!!
 
+## first build please run
+cd tails/static_src/
+npm install
+cd ../../
+pipenv run build
 ```
 
 ### github push
