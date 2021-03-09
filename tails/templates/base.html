@@ -69,7 +69,7 @@
                 <div class="w-full">
                     {% block content %}{% endblock content %}
                     <div class="notif-container fixed -right-52 top-14 md:top-0 mt-2"></div>
-                    <button type="button" onclick='createNotif("success","Success Text")'>ADD</button>
+                    <!-- <button type="button" onclick='createNotif("success","Success Text")'>ADD</button> -->
                 </div>
             </div>
         </div>
@@ -121,10 +121,11 @@
                 flexbox.append(textBox)
                 document.querySelector(".notif-container").append(flexbox)
             }
-            createNotif("success","Success Text")
+            /*createNotif("success","Success Text")
             createNotif("info","Info Text")
             createNotif("warning","Warning Text")
             createNotif("danger","Danger Text")
+            */
         </script>
 	</body>
 
