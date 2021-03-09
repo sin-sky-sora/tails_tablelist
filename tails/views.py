@@ -19,3 +19,6 @@ def trade_details(request,pk):
 
 def trade_search(request):
     return render(request,"trade.search.html")
+    
+def setting(request):
+    return HttpResponse("SETTING NOW")
