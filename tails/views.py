@@ -16,3 +16,6 @@ def trande_post(request):
 
 def trade_details(request,pk):
     return render(request,"trade.details.html")
+
+def trade_search(request):
+    return render(request,"trade.search.html")
