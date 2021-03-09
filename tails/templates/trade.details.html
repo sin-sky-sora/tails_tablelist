@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="max-w-4xl m-auto">
+        <div class="head m-1 my-8">
+            <div class="box border bg-gray-100">
+                <div class="header bg-gray-600 text-white pl-2">
+                     求）マヒアフィルローブ 
+                </div>
+                <div class="box pl-2">
+                    <div class="info">
+                        <div class="text-gray-700">時間 : 2020/03/05 13:05:30</div>
+                        <div class="text-gray-700">
+                            <span>ユーザーID : </span>
+                            <div class="user inline-block">NzkyMmNjMj</div>
+                        </div>
+                    </div>
+                    <div class="content m-2">
+                        バザーで　78000ｐｔ位で出品して頂ける方いらしたら<br>
+                        宜しくお願いします
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="head m-1 my-8">
+            <div class="box border bg-gray-100">
+                <div class="header bg-gray-600 text-white pl-2">
+                    1.
+                </div>
+                <div class="box pl-2">
+                    <div class="info">
+                        <div class="text-gray-700">時間 : 2020/03/05 14:05:30</div>
+                        <div class="text-gray-700">
+                            <span>ユーザーID : </span>
+                            <div class="user inline-block">NzkyMmNjMj</div>
+                        </div>
+                    </div>
+                    <div class="content m-2">
+                        1
+                    </div>
+                </div>
+            </div>
+            <div class="box border bg-gray-100">
+                <div class="header bg-gray-600 text-white pl-2">
+                    2.
+                </div>
+                <div class="box pl-2">
+                    <div class="info">
+                        <div class="text-gray-700">時間 : 2020/03/05 18:05:30</div>
+                        <div class="text-gray-700">
+                            <span>ユーザーID : </span>
+                            <div class="user inline-block">NWU2ODhiMj</div>
+                        </div>
+                    </div>
+                    <div class="content m-2">
+                        安いと思うよ
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="box border bg-gray-100 grid grid-cols-1 md:grid-cols-4 m-4 p-4">
+            <div class="text-gray-700 text-left md:col-span-1">コメント</div>
+            <div class="form md:col-start-2 md:col-end-5">
+                <textarea class="form-textarea w-full resize-y"></textarea>
+            </div>
+            <div class="submit col-span-full text-right">
+                <button class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded-lg shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1">
+                    送信
+                </button>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            document.querySelectorAll(".user").forEach(function(e){
+                const color = e.textContent.toRGBCode();
+                const div = document.createElement("div");
+                classsAdd(div,"h-3 w-3 rounded-lg inline-block ml-2")
+                div.style.background = color;
+                e.after(div)
+            })
+        </script>
+    </div>
+{% endblock content %}

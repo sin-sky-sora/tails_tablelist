@@ -11,6 +11,60 @@
 		<meta name="author" content="">
         <link rel="stylesheet" href="https://unpkg.com/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.min.css">
 		<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+		<script src="{% static 'js/chame.js' %}"></script>
+		<script type="text/javascript">
+            function togler(){
+                document.querySelector("nav").classList.toggle("translate-x-72");
+                document.querySelector(".layer").classList.toggle("hidden");
+                document.querySelector(".nvbtn").classList.toggle("hidden");
+            }
+            window.onload = function(){
+                document.querySelector(".layer").addEventListener("click",togler);
+            }
+            const classsAdd = (element,text) =>text.split(" ").forEach(function(e){ element.classList.add(e); });
+            const types = {
+                "success":{
+                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>',
+                    "box":"bg-green-500 border-green-700",
+                    "text":"text-green-500"
+                },
+                "info":{
+                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
+                    "box":"bg-blue-400 border-blue-700",
+                    "text":"text-blue-500"
+                },
+                "warning":{
+                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
+                    "box":"bg-yellow-500 border-yellow-600",
+                    "text":"text-yellow-500"
+                },
+                "danger":{
+                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>',
+                    "box":"bg-red-500 border-red-700",
+                    "text":"text-red-500"
+                }
+            }
+            function sleep(msec) {return new Promise(function(resolve) {setTimeout(function() {resolve()}, msec);});}
+            async function createNotif(type,text){
+                const data = types[type];
+                const color = document.createElement("div");
+                classsAdd(color,"rounded-full bg-white mr-3 " + data.text)
+                color.innerHTML = data.svg;
+                const flexbox = document.createElement("div");
+                classsAdd(flexbox,"flex items-center border-l-4 py-2 px-3 shadow-md mb-2 delay-500 duration-500 transform relative slide " + data.box)
+                flexbox.append(color)
+                const textBox = document.createElement("div")
+                classsAdd(textBox,"text-white max-w-xs pl-2")
+                textBox.textContent = text
+                flexbox.append(textBox)
+                document.querySelector(".notif-container").append(flexbox)
+            }
+            /*createNotif("success","Success Text")
+            createNotif("info","Info Text")
+            createNotif("warning","Warning Text")
+            createNotif("danger","Danger Text")
+            */
+        </script>
 	</head>
 	<body class="font-sans leading-normal tracking-normal bg-white">
 	    <div class="md:flex h-screen">
@@ -76,57 +130,7 @@
         <button type="button" class="nvbtn fixed md:hidden top-0 right-0 bg-gray-100 bg-opacity-95 rounded-full p-2 mt-2 mr-2" onclick="togler()">
             <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg></i>
         </button>
-        <script type="text/javascript">
-            function togler(){
-                document.querySelector("nav").classList.toggle("translate-x-72");
-                document.querySelector(".layer").classList.toggle("hidden");
-                document.querySelector(".nvbtn").classList.toggle("hidden");
-            }
-            document.querySelector(".layer").addEventListener("click",togler);
-            const classsAdd = (element,text) =>text.split(" ").forEach(function(e){ element.classList.add(e); });
-            const types = {
-                "success":{
-                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>',
-                    "box":"bg-green-500 border-green-700",
-                    "text":"text-green-500"
-                },
-                "info":{
-                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
-                    "box":"bg-blue-400 border-blue-700",
-                    "text":"text-blue-500"
-                },
-                "warning":{
-                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
-                    "box":"bg-yellow-500 border-yellow-600",
-                    "text":"text-yellow-500"
-                },
-                "danger":{
-                    "svg":'<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>',
-                    "box":"bg-red-500 border-red-700",
-                    "text":"text-red-500"
-                }
-            }
-            function sleep(msec) {return new Promise(function(resolve) {setTimeout(function() {resolve()}, msec);});}
-            async function createNotif(type,text){
-                const data = types[type];
-                const color = document.createElement("div");
-                classsAdd(color,"rounded-full bg-white mr-3 " + data.text)
-                color.innerHTML = data.svg;
-                const flexbox = document.createElement("div");
-                classsAdd(flexbox,"flex items-center border-l-4 py-2 px-3 shadow-md mb-2 delay-500 duration-500 transform relative slide " + data.box)
-                flexbox.append(color)
-                const textBox = document.createElement("div")
-                classsAdd(textBox,"text-white max-w-xs pl-2")
-                textBox.textContent = text
-                flexbox.append(textBox)
-                document.querySelector(".notif-container").append(flexbox)
-            }
-            /*createNotif("success","Success Text")
-            createNotif("info","Info Text")
-            createNotif("warning","Warning Text")
-            createNotif("danger","Danger Text")
-            */
-        </script>
+        
 	</body>
 
 </html>
