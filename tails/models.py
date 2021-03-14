@@ -16,3 +16,12 @@ class UserModel(models.Model):
         return "#%02X%02X%02X" % (r,g,b)
     def create_hash(text:str) -> str:
         return hashlib.sha256(text.encode()).hexdigest()
+
+class TradeBoardModel(models.Model):
+    title = models.CharField(max_length=30)
+    content = models.TextField(max_length=1000)
+    author = models.ManyToManyField(UserModel)
+    closed = models.BooleanField(default=False)
+    views = models.PositiveIntegerField(default=0)
+    favorite = models.ManyToManyField(UserModel)
+
