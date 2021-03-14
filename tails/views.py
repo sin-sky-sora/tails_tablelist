@@ -1,14 +1,13 @@
 from django.http.response import HttpResponse,JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
-import ipinfo
 from pprint import pprint
 
 def index(request):
-    pprint(vars(request))
-    if request.ipinfo is None:
-        print(request.ipinfo)
+    forwarded = request.META.get("HTTP_X_FORWARDED_FOR")
+    if forwarded:
+        print(forwarded.split(","))
     else:
-        pprint(vars(request.ipinfo))
+        print(request.META.get("REMOTE_ADDR"))
     return redirect("top_home")
     
 def home(request):
