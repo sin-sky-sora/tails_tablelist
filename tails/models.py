@@ -17,20 +17,20 @@ class UserModel(models.Model):
     def create_hash(text:str) -> str:
         return hashlib.sha256(text.encode()).hexdigest()
 
-PLACE_CHOICES = ((-1,"sp"),(0,"pcsp"),(1,"pc"))
-
-class TradeBoardModel(models.Model):
+class BoardModel(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField(max_length=1000)
-    place = models.IntegerField(choices=PLACE_CHOICES)
-    
     author = models.ForeignKey(UserModel)
     closed = models.BooleanField(default=False)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
-    
     views = models.PositiveIntegerField(default=0)
     favorite = models.ManyToManyField(UserModel)
+    
+PLACE_CHOICES = ((-1,"sp"),(0,"pcsp"),(1,"pc"))
+
+class TradeBoardModel(BoardModel):
+    place = models.IntegerField(choices=PLACE_CHOICES)
     comment = models.ForeignKey(TradeCommentModel)
 
 class TradeCommentModel(models.Model):
