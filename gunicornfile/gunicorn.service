@@ -1,0 +1,13 @@
+[Uint]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/ubuntu/tails_tablelist
+ExecStart=/usr/local/bin/pipenv run gunicorn -- access-logfile - -- workers 3 --bind unix:/run/gunicorn/socket project.wsgi
+
+[Install]
+WantedBy=multi-user.target

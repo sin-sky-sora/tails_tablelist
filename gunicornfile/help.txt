@@ -1,0 +1,7 @@
+Nginx config file
+/etc/nginx/sites-available/default
+
+
+gunicorn file
+/etc/systemd/system/gunicorn.socket
+/etc/systemd/system/gunicorn.service
