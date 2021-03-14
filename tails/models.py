@@ -27,13 +27,15 @@ class BoardModel(models.Model):
     views = models.PositiveIntegerField(default=0)
     favorite = models.ManyToManyField(UserModel)
     
-PLACE_CHOICES = ((-1,"sp"),(0,"pcsp"),(1,"pc"))
+class CommentModel(models.Model):
+    content = models.TextField(max_length=1000)
+    author = models.ForeignKey(UserModel)
+    create_time = models.DateTimeField(auto_now_add=True)
 
+PLACE_CHOICES = ((-1,"sp"),(0,"pcsp"),(1,"pc"))
 class TradeBoardModel(BoardModel):
     place = models.IntegerField(choices=PLACE_CHOICES)
     comment = models.ForeignKey(TradeCommentModel)
 
-class TradeCommentModel(models.Model):
-    content = models.TextField(max_length=1000)
-    author = models.ForeignKey(UserModel)
-    create_time = models.DateTimeField(auto_now_add=True)
+class TradeCommentModel(CommentModel):
+    pass
