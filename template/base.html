@@ -69,14 +69,14 @@
 	<body class="font-sans leading-normal tracking-normal bg-white">
 	    <div class="md:flex h-screen">
             <nav class="md:overflow-hidden fixed top-0 -left-72 md:left-0 w-72 md:w-16 duration-300 transform md:transform-none md:translate-x-0">
-                <div class="bg-pink-100 w-72 md:w-16 h-screen ">
+                <div class="bg-pink-100 w-full h-screen ">
                     <div class="flex-auto h-full">
                         <div class="flex flex-col h-screen">
                             <ul class="relative m-0 p-0 list-none h-screen">
                                 <li class="text-2xl p-4 w-full flex relative justify-start border-b-2 border-black md:hidden">
                                     example.com
                                 </li>
-                                <ul class="relative m-0 p-0 list-none h-full overflow-y-auto">
+                                <ul class="relative m-0 p-0 list-none overflow-y-auto h-nav md:h-full">
                                     <a href='{% url "top_home" %}' class="{% if request.path == '/home' %}pointer-events-none{% endif %}">
                                         <li class="px-2 py-1 w-full flex text-center {% if request.path == '/home' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
                                             <div class="flex md:block items-center p-2">
@@ -147,7 +147,7 @@
                                             </div>
                                         </li>
                                     </a>
-                                    <li class="h-16"><span class="hidden">dummy</span></li>
+                                    <!-- <li class="h-16"><span class="hidden">dummy</span></li> -->
                                 </ul>
                             </ul>
                         </div>

@@ -12,7 +12,7 @@ def trade(request):
     return render(request,"trade.html")
 
 def trande_post(request):
-    return render(request,"trade.post.html")
+    return render(request,"post.html")
 
 def trade_details(request,pk):
     return render(request,"trade.details.html")
