@@ -51,7 +51,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ipinfo_django.middleware.IPinfo',
 ]
+
+# IPINFO_TOKEN = '123456789abc'
+# IPINFO_SETTINGS = {
+#     'cache_options': {
+#         'ttl':30,
+#         'maxsize': 128
+#     },
+#     'countries_file': 'custom_countries.json'
+# }
+IPINFO_FILTER = lambda request: request.scheme == 'http'
 
 ROOT_URLCONF = 'project.urls'
 

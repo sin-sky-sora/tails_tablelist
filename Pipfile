@@ -9,6 +9,8 @@ django-tailwind = "*"
 django-3-jet = "*"
 gunicorn = "*"
 feedparser = "*"
+ipinfo-django = "*"
+ipinfo = "*"
 
 [dev-packages]
 

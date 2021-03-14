@@ -1,11 +1,17 @@
 from django.http.response import HttpResponse,JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
+import ipinfo
+from pprint import pprint
 
 def index(request):
+    pprint(vars(request))
+    if request.ipinfo is None:
+        print(request.ipinfo)
+    else:
+        pprint(vars(request.ipinfo))
     return redirect("top_home")
     
 def home(request):
-    print(request.path)
     return render(request,"home.html")
 
 def trade(request):
