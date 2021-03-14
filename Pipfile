@@ -8,6 +8,7 @@ django = "*"
 django-tailwind = "*"
 django-3-jet = "*"
 gunicorn = "*"
+feedparser = "*"
 
 [dev-packages]
 
