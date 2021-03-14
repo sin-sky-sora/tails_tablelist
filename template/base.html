@@ -77,8 +77,8 @@
                                     example.com
                                 </li>
                                 <ul class="relative m-0 p-0 list-none h-full overflow-y-auto">
-                                    <a href='{% url "top_home" %}' class="{% if request.path == '/home/' %}pointer-events-none{% endif %}">
-                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/home/' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
+                                    <a href='{% url "top_home" %}' class="{% if request.path == '/home' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/home' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
                                             <div class="flex md:block items-center p-2">
                                                 <div class="mx-auto">
                                                     <i><svg class="w-6 h-6 m-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></i>
@@ -87,8 +87,8 @@
                                             </div>
                                         </li>
                                     </a>
-                                    <a href='{% url "trade_home" %}' class="{% if request.path == '/trade/' %}pointer-events-none{% endif %}">
-                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/trade/' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
+                                    <a href='{% url "trade" %}' class="{% if request.path == '/trade' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/trade' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
                                             <div class="flex md:block items-center p-2">
                                                 <div class="mx-auto">
                                                     <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg></i>
@@ -97,8 +97,28 @@
                                             </div>
                                         </li>
                                     </a>
-                                    <a href='{% url "trade_post" %}' class="{% if request.path == '/trade/post/' %}pointer-events-none{% endif %}">
-                                        <li class="px-2 py-1 w-full flex text-center  {% if request.path == '/trade/post/' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
+                                    <a href='{% url "chat" %}' class="{% if request.path == '/chat' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/chat' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
+                                            <div class="flex md:block items-center p-2">
+                                                <div class="mx-auto">
+                                                    <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg></i>
+                                                </div>
+                                                <div class="md:text-ss pl-2 md:pl-0">雑談</div>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href='{% url "strategy" %}' class="{% if request.path == '/strategy' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center {% if request.path == '/strategy' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
+                                            <div class="flex md:block items-center p-2">
+                                                <div class="mx-auto">
+                                                    <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg></i>
+                                                </div>
+                                                <div class="md:text-ss pl-2 md:pl-0">攻略</div>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    <a href='{% url "post" %}' class="{% if request.path == '/post' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center  {% if request.path == '/post' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
                                             <div class="flex md:block items-center p-2">
                                                 <div class="mx-auto">
                                                     <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></i>
@@ -107,8 +127,8 @@
                                             </div>
                                         </li>
                                     </a>
-                                    <a href='{% url "trade_search" %}' class="{% if request.path == '/trade/search/' %}pointer-events-none{% endif %}">
-                                        <li class="px-2 py-1 w-full flex text-center  {% if request.path == '/trade/search/' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
+                                    <a href='{% url "search" %}' class="{% if request.path == '/search' %}pointer-events-none{% endif %}">
+                                        <li class="px-2 py-1 w-full flex text-center  {% if request.path == '/search' %}bg-pink-300{% else %}hover:bg-pink-200{% endif %}">
                                             <div class="flex md:block items-center p-2">
                                                 <div class="mx-auto">
                                                     <i><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></i>

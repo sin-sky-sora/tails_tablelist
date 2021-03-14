@@ -22,3 +22,10 @@ def trade_search(request):
     
 def setting(request):
     return HttpResponse("SETTING NOW")
+
+def welcome(request):
+    return HttpResponse("welcome")
+def chat(request):
+    return HttpResponse("chat")
+def strategy(request):
+    return HttpResponse("strategy")
