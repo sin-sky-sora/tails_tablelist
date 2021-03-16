@@ -5,8 +5,10 @@ from pprint import pprint
 def index(request):
     forwarded = request.META.get("HTTP_X_FORWARDED_FOR")
     if forwarded:
+        print("forwarded is true")
         print(forwarded.split(","))
     else:
+        print("forwarded is false")
         print(request.META.get("REMOTE_ADDR"))
     return redirect("top_home")
     
@@ -23,14 +25,16 @@ def trade_details(request,pk):
     return render(request,"trade.details.html")
 
 def trade_search(request):
-    return render(request,"trade.search.html")
+    return render(request,"search.html")
     
 def setting(request):
     return HttpResponse("SETTING NOW")
 
 def welcome(request):
-    return HttpResponse("welcome")
+    return render(request,"welcome.html")
+    
 def chat(request):
     return HttpResponse("chat")
+    
 def strategy(request):
     return HttpResponse("strategy")
