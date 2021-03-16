@@ -1,6 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block styles %}
+    <script src="{% static 'js/localforage.js' %}"></script>
+    <script type="text/javascript">
+        const store = localforage.createInstance({ name: "{{request.get_host}}", storeName: "setting"});
+        function fpinit(){
+            FingerprintJS.load().then(fp => {
+                fp.get().then(result => {
+                    const visitorId = result.visitorId;
+                    store.setItem("fingerprint",visitorId,(err)=>{
+                       if(err) alert(err); 
+                    });
+                });
+            });
+        }
+    </script>
+    <script src="{% static 'js/fp.min.js' %}" onload="fpinit()"></script>
+{% endblock styles %}
+
 {% block content %}
-    <h3 class="bold">Welcome!</h3>
+    <h3 class="font-bold">Welcome!</h3>
+    <h5 class="font-bold">{{ request.get_host }}</h5>
 {% endblock content %}
