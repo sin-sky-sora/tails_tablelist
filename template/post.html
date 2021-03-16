@@ -1,6 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block styles %}
+    <style type="text/css">
+        .tabset div.tab-body{
+            display: none;
+            position: relative;
+        }
+        .tabset div.tab-body.active{
+            display: block;
+            animation: change .3s ease 0s 1 alternate;
+        }
+        @keyframes change{
+            0%{ opacity: 0; left: 30px; width: calc(100% - 30px); }
+            100%{ opacity: 1; left: 0px; width: 100%; }
+        }
+        .tab-menu .tabactive{
+            background: pink;
+            border-bottom: 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        const cl = (t) => {return console.log(t)}
+        const qs = (el) => {return document.querySelector(el)}
+        const qsA = (el) => {return document.querySelectorAll(el)}
+        const eqsE  = (e,s,v,f) =>{return e.querySelector(s).addEventListener(v,f)}
+        window.onload = function(){
+            qsA(".tab").forEach(function(e){
+                eqsE(e,"input[type=radio]","change",function(el){
+                    qs(".tabactive").classList.remove("tabactive")
+                    e.classList.add("tabactive")
+                    
+                    qs(".tabset .active").classList.remove("active")
+                    qs(e.dataset.target).classList.add("active")
+                });
+            });
+        }
+    </script>
+{% endblock styles %}
+
 {% block content %}
     <div class="container mx-auto">
         <div class="my-3 px-2">
@@ -8,42 +46,82 @@
             <div class="py-4">
                 <div class="xl:w-2/3 w-full mx-auto overflow-auto">
                     <div class="w-full max-x-xs">
-                        <form class="bg-white rounded px-8 py-6">
-                            <div class="mb-4">
-                                <label class="block text-gray-900 text-sm mb-2" for="title">
-                                    題名
+                        <form class="bg-white px-8 py-6">
+                            <div class="tabs tab-menu flex">
+                                <label data-target="#trade" class="tab px-4 py-2 block bg-red-500 hover:bg-green-500 border border-black rounded-tl-md tabactive">
+                                    <div class="whitespace-nowrap">
+                                        取引
+                                    </div>
+                                    <input type="radio" name="tab" class="hidden" value="t1" checked>
                                 </label>
-                                <input type="text" class="form-input w-full md:w-3/5 py-2 px-3" placeholder="題名">
+                                <label data-target="#chat" class="tab px-4 py-2 block bg-red-500 hover:bg-green-500 border border-black">
+                                    <div class="whitespace-nowrap">
+                                        雑談
+                                    </div>
+                                    <input type="radio" name="tab" class="hidden" value="t2">
+                                </label>
+                                <!-- <label data-target="#tab3" class="tab px-4 py-2 block bg-red-500 hover:bg-green-500 border border-black">
+                                    <div class="whitespace-nowrap">
+                                        tab3
+                                    </div>
+                                    <input type="radio" name="tab" class="hidden" value="t3">
+                                </label> -->
+                                <label data-target="#strategy" class="tab px-4 py-2 block bg-red-500 hover:bg-green-500 border border-black rounded-tr-md">
+                                    <div class="whitespace-nowrap">
+                                        攻略
+                                    </div>
+                                    <input type="radio" name="tab" class="hidden" value="t4">
+                                </label>
+                                <div class="w-full border-b border-black"></div>
                             </div>
-                            <div class="mb-4">
-                                <label class="block text-gray-900 text-sm mb-2">
-                                    取引場所
-                                </label>
-                                <div class="flex flex-col sm:flex-row">
-                                    <label class="items-center mx-2">
-                                        <input type="radio" class="form-radio text-yellow-500" name="place" value="PC" checked>
-                                        <span class="ml-2">PC Only</span>
-                                    </label>
-                                    <label class="items-center mx-2">
-                                        <input type="radio" class="form-radio text-blue-500" name="place" value="PCSP">
-                                        <span class="ml-2">PC and SP</span>
-                                    </label>
-                                    <label class="items-center mx-2">
-                                        <input type="radio" class="form-radio text-green-500" name="place" value="SP">
-                                        <span class="ml-2">SP Only</span>
-                                    </label>
+                            <div class="tabset border border-t-0 border-black">
+                                <div id="trade" class="tab-body active m-4 mt-0 pt-4">
+                                    <div class="mb-4">
+                                        <label class="block text-gray-900 text-sm mb-2" for="title">
+                                            題名
+                                        </label>
+                                        <input type="text" class="form-input w-full md:w-3/5 py-2 px-3" placeholder="題名">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="block text-gray-900 text-sm mb-2">
+                                            取引場所
+                                        </label>
+                                        <div class="flex flex-col sm:flex-row">
+                                            <label class="items-center mx-2">
+                                                <input type="radio" class="form-radio text-yellow-500" name="place" value="PC" checked>
+                                                <span class="ml-2">PC Only</span>
+                                            </label>
+                                            <label class="items-center mx-2">
+                                                <input type="radio" class="form-radio text-blue-500" name="place" value="PCSP">
+                                                <span class="ml-2">PC and SP</span>
+                                            </label>
+                                            <label class="items-center mx-2">
+                                                <input type="radio" class="form-radio text-green-500" name="place" value="SP">
+                                                <span class="ml-2">SP Only</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="block text-gray-900 text-sm mb-2" for="content">
+                                            内容
+                                        </label>
+                                        <textarea class="form-textarea resize-y w-full md:w-4/5" rows="6"></textarea>
+                                    </div>
+                                    <div class="mb-4 text-right md:w-4/5">
+                                        <button type="button" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                          作成
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mb-4">
-                                <label class="block text-gray-900 text-sm mb-2" for="content">
-                                    内容
-                                </label>
-                                <textarea class="form-textarea resize-y w-full md:w-4/5" rows="6"></textarea>
-                            </div>
-                            <div class="mb-4 text-right md:w-4/5">
-                                <button type="button" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                                  作成
-                                </button>
+                                <div id="chat" class="tab-body m-4 mt-0 pt-4">
+                                    取引と一緒
+                                </div>
+                                <!-- <div id="tab3" class="tab-body m-4 mt-0 pt-4">
+                                    たぶ3個目
+                                </div> -->
+                                <div id="strategy" class="tab-body m-4 mt-0 pt-4">
+                                    タグ追加
+                                </div>
                             </div>
                         </form>
                     </div>
