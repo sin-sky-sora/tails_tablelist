@@ -3,7 +3,10 @@
 
 {% block styles %}
     <script src="{% static 'js/localforage.js' %}"></script>
+    <script src="{% static 'js/axios.min.js' %}"></script>
+    <script src="{% static 'js/js.cookie.min.js' %}"></script>
     <script type="text/javascript">
+        const cl = (v) => {return console.log(v)}
         const store = localforage.createInstance({ name: "{{request.get_host}}", storeName: "setting"});
         function fpinit(){
             FingerprintJS.load().then(fp => {
@@ -15,8 +18,60 @@
                 });
             });
         }
+        function fingercreate(){
+            const script = document.createElement("script");
+            script.src = '{% static "js/fp.min.js" %}';
+            script.onload = fpinit
+            script.async = true;
+            document.head.append(script)
+        }
+        function inquiry(v){
+            axios.post('{% url "api" "user" %}',{
+                finger: v
+            },{
+                headers: {
+                    "X-CSRFToken":Cookies.get("csrftoken")
+                }
+            })
+            .then((res)=>{
+                const data = res.data
+                cl(data)
+                if(data.type == "success"){
+                    if(data.status == "already")
+                        cl("ユーザーが存在する")
+                    else if(data.status == "yet")
+                        cl("ユーザーが存在しなかったから作ったよ")
+                    else
+                        cl("impossible")
+                }else if(data.type == "failed")
+                    cl("branch error")
+                else
+                    cl("impossible")
+            })
+            .catch((err)=>{
+                cl("connection error")
+                cl(err)
+            })
+        }
+        async function storehas(){
+            store.getItem("fingerprint",function(e,v){
+                if(e)
+                    cl("getitem error");
+                else{
+                    if(v){
+                        cl("no set");
+                        cl(v);
+                        inquiry(v);
+                    }else{
+                        cl("set!");
+                        fingercreate();
+                        storehas();
+                    }
+                }
+            })
+        }
+        window.onload = storehas()
     </script>
-    <script src="{% static 'js/fp.min.js' %}" onload="fpinit()"></script>
 {% endblock styles %}
 
 {% block content %}

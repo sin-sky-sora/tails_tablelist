@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import index,home,trade,trande_post,trade_details,trade_search,setting,welcome,chat,strategy
+from .views import *
 urlpatterns = [
     path('',index,name="top"),
     path('welcome',welcome,name="welcome"),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('chat',chat,name="chat"),
     path('strategy',strategy,name="strategy"),
     path('setting',setting,name="setting"),
+    path('api/<str:cases>/',api,name="api"),
 ]

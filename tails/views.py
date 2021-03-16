@@ -38,3 +38,17 @@ def chat(request):
     
 def strategy(request):
     return HttpResponse("strategy")
+    
+def api(request,cases):
+    data = {"type":"failed"}
+    if cases == "user":
+        """
+            status:
+                yet
+                    ユーザー登録する必要がある
+                already
+                    ユーザーは既に登録されている
+        """
+        data["type"] = "success"
+        data["status"] = "yet"
+    return JsonResponse(data)
