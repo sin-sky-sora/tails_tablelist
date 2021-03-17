@@ -25,6 +25,16 @@
             script.async = true;
             document.head.append(script)
         }
+        function build_user(data){
+            const jj = {}
+            jj["color"] = data.color
+            jj["hash"] = data.hash
+            jj["name"] = data.name
+            store.setItem("userdata",jj,(err)=>{
+                if(err) alert(err)
+                cl("帰れ")
+            });
+        }
         function inquiry(v){
             axios.post('{% url "api" "user" %}',{
                 finger: v
@@ -43,6 +53,8 @@
                         cl("ユーザーが存在しなかったから作ったよ")
                     else
                         cl("impossible")
+                    if(data.status == "already" || data.status == "yet")
+                        build_user(data)
                 }else if(data.type == "failed")
                     cl("branch error")
                 else
@@ -53,10 +65,10 @@
                 cl(err)
             })
         }
-        async function storehas(){
+        function storehas(){
             store.getItem("fingerprint",function(e,v){
                 if(e)
-                    cl("getitem error");
+                    cl("getitem error\n" + e)
                 else{
                     if(v){
                         cl("no set");
@@ -68,9 +80,23 @@
                         storehas();
                     }
                 }
-            })
+            });
+            return 0
         }
-        window.onload = storehas()
+        const t = () => { cl("foo") }
+        function doyouneed(){
+            store.getItem("userdata",function(e,v){
+                if(e)
+                    cl("getitem error\n" + e)
+                else{
+                    if(!v)
+                        storehas()
+                    else
+                        cl("お帰れ")
+                }
+            });
+        }
+        window.onload = doyouneed()
     </script>
 {% endblock styles %}
 

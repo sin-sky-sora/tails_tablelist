@@ -1,6 +1,9 @@
 from django.http.response import HttpResponse,JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from pprint import pprint
+from uuid import uuid4
+from random import randint,choices
+import string
 
 def index(request):
     forwarded = request.META.get("HTTP_X_FORWARDED_FOR")
@@ -38,7 +41,13 @@ def chat(request):
     
 def strategy(request):
     return HttpResponse("strategy")
-    
+
+def random_colors() -> int:
+    r,g,b = randint(0,255),randint(0,255),randint(0,255)
+    return "#%02X%02X%02X" % (r,g,b)
+def random_name(n:int) -> str:
+    return "".join(choices(string.ascii_letters+string.digits,k=n))
+
 def api(request,cases):
     data = {"type":"failed"}
     if cases == "user":
@@ -51,4 +60,8 @@ def api(request,cases):
         """
         data["type"] = "success"
         data["status"] = "yet"
+        user_hash = uuid4()
+        data["hash"] = str(user_hash)
+        data["color"] = random_colors()
+        data["name"] = random_name(12)
     return JsonResponse(data)

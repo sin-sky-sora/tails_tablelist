@@ -14,7 +14,7 @@ class UserModel(models.Model):
     def random_colors(self) -> int:
         r,g,b = randint(0,255),randint(0,255),randint(0,255)
         return "#%02X%02X%02X" % (r,g,b)
-    def create_hash(text:str) -> str:
+    def create_hash(self,text:str) -> str:
         return hashlib.sha256(text.encode()).hexdigest()
 
 # https://djangobrothers.com/blogs/related_name/#related_name%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9
