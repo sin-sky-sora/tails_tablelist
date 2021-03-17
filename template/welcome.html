@@ -18,10 +18,42 @@
                 });
             });
         }
-        function fingercreate(){
+        function fpcheck(){
+            FingerprintJS.load().then(fp => {
+                fp.get().then(result => {
+                    const visitorId = result.visitorId
+                    store.getItem("fingerprint",function(e,v){
+                        if(e) alert("getitem error\n"+e)
+                        else if(v && v != visitorId){
+                            store.setItem("fingerprint",visitorId,err => {
+                                if(err) alert(err);
+                            });
+                            axios.post('{% url "api" "user" %}',{
+                                finger: visitorId,
+                                update: true
+                            },{
+                                headers: {
+                                    "X-CSRFToken": Cookies.get("csrftoken")
+                                }
+                            })
+                            .then((res)=>{
+                                const data = res.data
+                                cl(data)
+                            })
+                        }
+                        else cl("no probrem")
+                    })
+                })
+            })
+        }
+        function fingercreate(cases = ""){
             const script = document.createElement("script");
             script.src = '{% static "js/fp.min.js" %}';
-            script.onload = fpinit
+            cl(cases)
+            if(cases == "")
+                script.onload = fpinit
+            else if(cases == "conf")
+                script.onload = fpcheck
             script.async = true;
             document.head.append(script)
         }
@@ -92,7 +124,7 @@
                     if(!v)
                         storehas()
                     else
-                        cl("お帰れ")
+                        fingercreate("conf")
                 }
             });
         }

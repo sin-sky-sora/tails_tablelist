@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from pprint import pprint
 from uuid import uuid4
 from random import randint,choices
-import string
+import string,json
 
 def index(request):
     forwarded = request.META.get("HTTP_X_FORWARDED_FOR")
@@ -51,6 +51,8 @@ def random_name(n:int) -> str:
 def api(request,cases):
     data = {"type":"failed"}
     if cases == "user":
+        data = json.loads(request.body)
+        print(data)
         """
             status:
                 yet
